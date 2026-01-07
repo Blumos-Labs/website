@@ -2,25 +2,29 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  --primary-blue-light: #2D7AFD;
+  --primary-blue-dark: #004AAD;
+  --black: #000000;
+  --white: #FFFFFF;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary-light: var(--primary-blue-light);
+  --color-primary-dark: var(--primary-blue-dark);
+  --color-black: var(--black);
+  --color-white: var(--white);
+  --font-sans: var(--font-poppins);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  scroll-behavior: smooth;
 }

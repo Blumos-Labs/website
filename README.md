@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Blumos Labs Website
+
+A modern, fully responsive Next.js website for Blumos Labs - a hardware and software solutions company specializing in GPS technology, EV battery management systems, and custom solutions.
+
+## Features
+
+- **Modern Design**: Clean, professional design with smooth animations and transitions
+- **Fully Responsive**: Optimized for all devices from mobile to desktop
+- **Brand Identity**: Implements Blumos Labs brand colors and Poppins font
+- **Interactive Sections**:
+  - Hero section with animated background
+  - About section with company stats and values
+  - Solutions showcase with 6+ solution categories
+  - Products section featuring key offerings
+  - Contact form with validation
+  - Responsive navigation with mobile menu
+  - Comprehensive footer with newsletter signup
+
+## Color Palette
+
+- Primary Blue Light: `#2D7AFD`
+- Primary Blue Dark: `#004AAD`
+- Black: `#000000`
+- White: `#FFFFFF`
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Font**: Poppins (Google Fonts)
 
 ## Getting Started
 
-First, run the development server:
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Install dependencies
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Run development server
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) to view the website.
+
+### Build for Production
+
+```bash
+# Create production build
+npm run build
+
+# Start production server
+npm start
+```
+
+## Project Structure
+
+```
+blumos-website/
+├── app/
+│   ├── layout.tsx          # Root layout with Poppins font
+│   ├── page.tsx            # Main homepage
+│   └── globals.css         # Global styles and brand colors
+├── components/
+│   ├── Navigation.tsx      # Header navigation
+│   ├── Hero.tsx           # Hero section
+│   ├── About.tsx          # About section
+│   ├── Solutions.tsx      # Solutions showcase
+│   ├── Products.tsx       # Products section
+│   ├── Contact.tsx        # Contact form
+│   └── Footer.tsx         # Footer
+└── public/
+    └── images/            # Image assets
+```
+
+## Customization
+
+### Update Content
+
+Edit the component files in the `components/` directory to update:
+- Navigation links
+- Hero section content
+- Solutions and products
+- Contact information
+- Footer links
+
+### Modify Colors
+
+Update brand colors in `app/globals.css`:
+
+```css
+:root {
+  --primary-blue-light: #2D7AFD;
+  --primary-blue-dark: #004AAD;
+}
+```
+
+### Add Images
+
+Place your images in the `public/images/` directory and reference them using:
+
+```tsx
+import Image from 'next/image';
+<Image src="/images/your-image.png" alt="Description" />
+```
+
+## Deployment
+
+### Vercel (Recommended)
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+```
+
+### Other Platforms
+
+The website can be deployed to any platform that supports Next.js:
+- Netlify
+- AWS Amplify
+- Google Cloud
+- DigitalOcean
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2026 Blumos Labs. All rights reserved.
