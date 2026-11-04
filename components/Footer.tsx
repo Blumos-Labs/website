@@ -1,170 +1,96 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
+import { EMAIL, PHONE, PHONE_HREF, COMPANY } from '@/lib/content';
+import { SocialLinks, StoreLinks } from './SocialLinks';
+import { IconMail, IconPhone } from './Icons';
 
-export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
-  const footerLinks = {
-    company: [
-      { label: 'About Us', href: '#about' },
-      { label: 'Our Team', href: '#about' },
-      { label: 'Careers', href: '#contact' },
-      { label: 'Contact', href: '#contact' },
+const columns = [
+  {
+    title: 'Products',
+    links: [
+      { label: 'All products', href: '/products' },
+      { label: 'BMS Software', href: '/products/bms-software' },
+      { label: 'BMS IoT', href: '/products/bms-iot' },
     ],
-    solutions: [
-      { label: 'GPS Tracking', href: '#solutions' },
-      { label: 'EV Battery', href: '#solutions' },
-      { label: 'IoT Solutions', href: '#solutions' },
-      { label: 'Custom Development', href: '#solutions' },
+  },
+  {
+    title: 'Resources',
+    links: [
+      { label: 'Blog', href: '/blog' },
+      { label: 'What is a BMS app?', href: '/blog/what-is-a-bms-app' },
+      { label: 'JBD vs JK vs Daly BMS', href: '/blog/jbd-vs-jk-vs-daly-bms' },
+      { label: 'BMS IoT explained', href: '/blog/bms-iot-ev-battery-monitoring' },
     ],
-    products: [
-      { label: 'TrackPro GPS', href: '#products' },
-      { label: 'PowerGuard BMS', href: '#products' },
-      { label: 'Blumos Connect', href: '#products' },
-      { label: 'SmartNode IoT', href: '#products' },
-    ],
-    legal: [
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'About', href: '/about' },
+      { label: 'Contact', href: '/contact' },
       { label: 'Privacy Policy', href: '/privacy-policy' },
       { label: 'Terms of Service', href: '/terms-of-service' },
-      { label: 'Cookie Policy', href: '/privacy-policy#cookies' },
-      { label: 'Contact Us', href: '#contact' },
     ],
-  };
+  },
+];
 
+export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-black text-white">
-      {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
-          {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <Link href="#home" className="inline-block mb-6">
-              <div className="text-3xl font-bold">
-                <span className="text-[#2D7AFD]">BLU</span>
-                <span className="text-white">MOS</span>
-                <span className="text-sm align-top">®</span>
-              </div>
+    <footer className="relative overflow-hidden border-t border-gray-200 bg-gray-50">
+      {/* Decorative MOSFET mark: tilted, faint, bleeding off the bottom-right corner */}
+      <Image
+        src="/icon.png"
+        alt=""
+        width={491}
+        height={508}
+        aria-hidden
+        sizes="(min-width: 1024px) 336px, 256px"
+        className="pointer-events-none absolute -bottom-[20%] -right-[3%] h-auto w-52 rotate-[-14deg] select-none opacity-[0.09] sm:w-64 lg:w-[21rem]"
+      />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid gap-[var(--s2)] md:grid-cols-[1.618fr_repeat(3,1fr)]">
+          <div>
+            <Link href="/" className="inline-flex items-center gap-2.5" aria-label="Blumos Labs home">
+              <Image src="/icon.png" alt="" width={36} height={36} className="h-8 w-auto" />
+              <Image src="/logo.png" alt="Blumos" width={120} height={26} className="h-5 w-auto" />
             </Link>
-            <p className="text-gray-400 mb-6 leading-relaxed max-w-md">
-              Pioneering innovative hardware and software solutions for GPS, EV batteries, and diverse industries worldwide.
-            </p>
-
-            {/* Social Links */}
-            <div className="flex space-x-4">
-              {[
-                { name: 'LinkedIn', icon: 'LI' },
-                { name: 'Twitter', icon: 'TW' },
-                { name: 'GitHub', icon: 'GH' },
-                { name: 'YouTube', icon: 'YT' },
-              ].map((social) => (
-                <a
-                  key={social.name}
-                  href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-[#2D7AFD] hover:to-[#004AAD] transition-all duration-300 transform hover:scale-110 group"
-                  aria-label={social.name}
-                >
-                  <span className="text-xs font-bold group-hover:text-white">{social.icon}</span>
+            <ul className="mt-5 space-y-2.5 text-sm">
+              <li>
+                <a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2.5 text-gray-700 transition-colors hover:text-[#1a68ee]">
+                  <IconMail className="h-4 w-4 flex-shrink-0 text-[#1a68ee]" />
+                  {EMAIL}
                 </a>
-              ))}
+              </li>
+              <li>
+                <a href={PHONE_HREF} className="inline-flex items-center gap-2.5 text-gray-700 transition-colors hover:text-[#1a68ee]">
+                  <IconPhone className="h-4 w-4 flex-shrink-0 text-[#1a68ee]" />
+                  {PHONE}
+                </a>
+              </li>
+            </ul>
+            <div className="mt-[var(--s1)] flex flex-wrap gap-3">
+              <SocialLinks />
+              <StoreLinks />
             </div>
           </div>
 
-          {/* Company Links */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Company</h3>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-[#2D7AFD] transition-colors duration-300"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Solutions Links */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Solutions</h3>
-            <ul className="space-y-3">
-              {footerLinks.solutions.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-[#2D7AFD] transition-colors duration-300"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Products Links */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Products</h3>
-            <ul className="space-y-3">
-              {footerLinks.products.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-[#2D7AFD] transition-colors duration-300"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Newsletter Section */}
-        <div className="mt-12 pt-12 border-t border-gray-800">
-          <div className="max-w-2xl">
-            <h3 className="text-xl font-bold mb-4">Stay Updated</h3>
-            <p className="text-gray-400 mb-4">
-              Subscribe to our newsletter for the latest updates and innovations.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-[#2D7AFD] focus:border-transparent outline-none text-white placeholder-gray-500 transition-all"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-gradient-to-r from-[#2D7AFD] to-[#004AAD] text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 whitespace-nowrap"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm text-center md:text-left">
-              © {currentYear} Blumos Labs. All rights reserved.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6">
-              {footerLinks.legal.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="text-gray-400 hover:text-[#2D7AFD] transition-colors duration-300 text-sm"
-                >
-                  {link.label}
-                </Link>
-              ))}
+          {columns.map((col) => (
+            <div key={col.title}>
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-gray-500">{col.title}</h3>
+              <ul className="mt-4 space-y-3">
+                {col.links.map((l) => (
+                  <li key={l.label}>
+                    <Link href={l.href} className="text-sm text-gray-600 transition-colors hover:text-[#1a68ee]">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          ))}
+        </div>
+
+        <div className="mt-12 border-t border-gray-200 pt-6 text-sm text-gray-500">
+          © {new Date().getFullYear()} {COMPANY}. All rights reserved.
         </div>
       </div>
     </footer>

@@ -1,93 +1,53 @@
-'use client';
-
 import Link from 'next/link';
-import Image from 'next/image';
+import InteractiveEv from './InteractiveEv';
+import { IconArrow } from './Icons';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-blue-50 to-white pt-20">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#2D7AFD]/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#004AAD]/10 rounded-full blur-3xl animate-pulse delay-700"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#2D7AFD]/5 rounded-full blur-3xl"></div>
-      </div>
+    <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white pt-14 sm:pt-20 pb-[var(--s3)] sm:pb-[var(--s4)]">
+      <div className="absolute inset-0 bg-grid" aria-hidden />
+      <div className="absolute -top-32 left-0 h-[420px] w-[620px] rounded-full bg-[#2D7AFD]/15 blur-[110px]" aria-hidden />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center">
-          {/* Logo Badge */}
-          <div className="inline-flex items-center justify-center mb-8">
-            <div className="bg-white shadow-xl rounded-2xl p-6 transform hover:scale-105 transition-transform duration-300">
-              <Image
-                src="/icon.png"
-                alt="Blumos Labs"
-                width={100}
-                height={100}
-                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
-                priority
-              />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-[1fr_1.272fr] gap-[var(--s2)] lg:gap-[var(--s1)] items-center">
+          <div>
+            <div className="fade-up inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-3.5 py-1.5 text-xs font-medium text-[#004AAD]">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#2D7AFD] opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#2D7AFD]" />
+              </span>
+              EV solution provider
             </div>
+
+            <h1 className="fade-up fade-up-2 mt-6 t-h1 font-semibold leading-[1.08] tracking-tight text-gray-900">
+              The intelligence behind <span className="text-gradient">every electric mile.</span>
+            </h1>
+
+            <p className="fade-up fade-up-3 mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-gray-600">
+              Blumos Labs builds BMS software and BMS IoT hardware that give EV brands, fleets and service teams
+              live visibility into every battery pack, from the app on the phone to the device on the vehicle.
+            </p>
+
+            <div className="fade-up fade-up-3 mt-9 flex flex-wrap gap-3">
+              <Link
+                href="/products"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#1a68ee] px-7 py-3.5 font-semibold text-white hover:bg-[#004AAD] transition-colors"
+              >
+                Explore products <IconArrow className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-full border border-gray-300 bg-white px-7 sm:w-auto py-3.5 font-semibold text-gray-900 hover:border-[#2D7AFD] hover:text-[#1a68ee] transition-colors"
+              >
+                Talk to us
+              </Link>
+            </div>
+
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-            Innovating the Future with
-            <span className="block mt-2 bg-gradient-to-r from-[#2D7AFD] to-[#004AAD] bg-clip-text text-transparent">
-              Smart Solutions
-            </span>
-          </h1>
-
-          {/* Tagline */}
-          <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#2D7AFD] mb-4 tracking-wide">
-            Powering the Edge
-          </p>
-
-          {/* Subtitle */}
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Hardware & Software Solutions for GPS, EV Battery Management, and Beyond
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Link
-              href="#solutions"
-              className="w-full sm:w-auto bg-gradient-to-r from-[#2D7AFD] to-[#004AAD] text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-            >
-              Explore Solutions
-            </Link>
-            <Link
-              href="#contact"
-              className="w-full sm:w-auto bg-white text-[#004AAD] border-2 border-[#2D7AFD] px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#2D7AFD] hover:text-white hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-            >
-              Contact Us
-            </Link>
+          <div className="fade-up fade-up-2">
+            <InteractiveEv />
           </div>
-
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto mt-16">
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="text-[#2D7AFD] text-4xl mb-4">⚡</div>
-              <h3 className="font-bold text-lg mb-2">GPS Technology</h3>
-              <p className="text-gray-600 text-sm">Advanced tracking and navigation solutions</p>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="text-[#2D7AFD] text-4xl mb-4">🔋</div>
-              <h3 className="font-bold text-lg mb-2">EV Battery Systems</h3>
-              <p className="text-gray-600 text-sm">Intelligent battery management software</p>
-            </div>
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="text-[#2D7AFD] text-4xl mb-4">🔧</div>
-              <h3 className="font-bold text-lg mb-2">Custom Solutions</h3>
-              <p className="text-gray-600 text-sm">Tailored hardware & software products</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-[#2D7AFD] rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-[#2D7AFD] rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

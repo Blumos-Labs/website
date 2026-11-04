@@ -1,139 +1,28 @@
-# Blumos Labs Website
+# Blumos Labs website
 
-A modern, fully responsive Next.js website for Blumos Labs - a hardware and software solutions company specializing in GPS technology, EV battery management systems, and custom solutions.
+Marketing site for Blumos Labs Private Limited: BMS software (Blumos Battery Platform) and BMS IoT (Blu-400).
+Built with Next.js (App Router), TypeScript and Tailwind CSS.
 
-## Features
-
-- **Modern Design**: Clean, professional design with smooth animations and transitions
-- **Fully Responsive**: Optimized for all devices from mobile to desktop
-- **Brand Identity**: Implements Blumos Labs brand colors and Poppins font
-- **Interactive Sections**:
-  - Hero section with animated background
-  - About section with company stats and values
-  - Solutions showcase with 6+ solution categories
-  - Products section featuring key offerings
-  - Contact form with validation
-  - Responsive navigation with mobile menu
-  - Comprehensive footer with newsletter signup
-
-## Color Palette
-
-- Primary Blue Light: `#2D7AFD`
-- Primary Blue Dark: `#004AAD`
-- Black: `#000000`
-- White: `#FFFFFF`
-
-## Tech Stack
-
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Font**: Poppins (Google Fonts)
-
-## Getting Started
-
-### Installation
+## Run
 
 ```bash
-# Install dependencies
 npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run lint
 ```
 
-### Development
+## Where things live
 
-```bash
-# Run development server
-npm run dev
-```
+- `app/(site)/`: all pages (home, products, BMS app pages, about, contact, legal). `app/(site)/layout.tsx` adds the nav and footer.
+- `lib/content.ts`: product, feature and spec content. Add new products to `products` and they appear on the Products and Home pages.
+- `lib/site.ts`: site URL, company details and the supported BMS brands (one `/bms-app/<brand>` page each).
+- `components/`: shared UI. `Faq` renders a visible FAQ plus FAQPage structured data; `JsonLd` renders schema.org data.
+- `public/`: logos, client logos (`clients/`), app screenshots (`screens/`), product images (`products/`), `llms.txt`.
 
-Open [http://localhost:3000](http://localhost:3000) to view the website.
+## Before going live
 
-### Build for Production
-
-```bash
-# Create production build
-npm run build
-
-# Start production server
-npm start
-```
-
-## Project Structure
-
-```
-blumos-website/
-├── app/
-│   ├── layout.tsx          # Root layout with Poppins font
-│   ├── page.tsx            # Main homepage
-│   └── globals.css         # Global styles and brand colors
-├── components/
-│   ├── Navigation.tsx      # Header navigation
-│   ├── Hero.tsx           # Hero section
-│   ├── About.tsx          # About section
-│   ├── Solutions.tsx      # Solutions showcase
-│   ├── Products.tsx       # Products section
-│   ├── Contact.tsx        # Contact form
-│   └── Footer.tsx         # Footer
-└── public/
-    └── images/            # Image assets
-```
-
-## Customization
-
-### Update Content
-
-Edit the component files in the `components/` directory to update:
-- Navigation links
-- Hero section content
-- Solutions and products
-- Contact information
-- Footer links
-
-### Modify Colors
-
-Update brand colors in `app/globals.css`:
-
-```css
-:root {
-  --primary-blue-light: #2D7AFD;
-  --primary-blue-dark: #004AAD;
-}
-```
-
-### Add Images
-
-Place your images in the `public/images/` directory and reference them using:
-
-```tsx
-import Image from 'next/image';
-<Image src="/images/your-image.png" alt="Description" />
-```
-
-## Deployment
-
-### Vercel (Recommended)
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
-```
-
-### Other Platforms
-
-The website can be deployed to any platform that supports Next.js:
-- Netlify
-- AWS Amplify
-- Google Cloud
-- DigitalOcean
-
-## Learn More
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-
-## License
-
-© 2026 Blumos Labs. All rights reserved.
+- Set `NEXT_PUBLIC_SITE_URL` to the real domain (default `https://www.blumoslabs.com`). It drives canonical URLs, the sitemap and structured data.
+- The contact form opens the visitor's email app (`mailto:`). Replace it with a server action or an email service for a real inbox.
+- Submit `/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+- Have the Privacy Policy and Terms reviewed by a lawyer.

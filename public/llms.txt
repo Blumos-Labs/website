@@ -1,0 +1,31 @@
+# Blumos Labs
+
+> Blumos Labs (Blumos), legally Blumos Labs Private Limited, is an EV technology company (India) that builds BMS software and BMS IoT hardware for electric vehicles and battery systems.
+
+Website: https://www.blumoslabs.com
+Contact: info@blumoslabs.com, +91 87961 01069
+LinkedIn: https://www.linkedin.com/company/blumoslabs
+Instagram: https://www.instagram.com/blumos_labs
+Google Play (all apps): https://play.google.com/store/apps/developer?id=Blumos+Labs+Private+Limited
+App Store (all apps): https://apps.apple.com/sg/developer/blumos-labs-private-limited/id6788266263
+
+## Products
+
+- [Blumos Battery Platform (BMS software)](https://www.blumoslabs.com/products/bms-software): An OEM-ready Bluetooth app for iOS and Android that monitors and configures JBD, JK, Daly and other major smart BMS. Features: real-time per-cell monitoring (voltage, SOC/SOH, temperatures, cycles, protection flags), full read and write of BMS settings with safe-write confirmation, a built-in complaint CRM, and full white-label branding (logo, colours, store listing).
+- [Blu-400 (BMS IoT / battery monitoring telematics device)](https://www.blumoslabs.com/products/bms-iot): Industrial-grade LTE Cat-1 telematics device with GNSS (GPS, GLONASS, BeiDou, QZSS), BLE 5.0, communicates over CAN (OBD-II and heavy-duty protocols), UART and RS485, 9-90V DC input, IP67 enclosure, DI/DO/AI and 1-Wire interfaces, FOTA updates.
+
+## Guides (blog)
+
+- [What is a BMS app?](https://www.blumoslabs.com/blog/what-is-a-bms-app): what a BMS app shows and changes, and what to look for in BMS software.
+- [JBD vs JK vs Daly BMS](https://www.blumoslabs.com/blog/jbd-vs-jk-vs-daly-bms): how to choose a smart BMS and manage a mixed fleet in one app.
+- [BMS IoT: remote EV battery monitoring](https://www.blumoslabs.com/blog/bms-iot-ev-battery-monitoring): how BMS IoT and GPS telematics devices work.
+- [White-label BMS app for battery brands](https://www.blumoslabs.com/blog/white-label-bms-app)
+- [Cell imbalance in lithium battery packs](https://www.blumoslabs.com/blog/cell-imbalance-lithium-battery)
+
+## Company
+
+- [Blog](https://www.blumoslabs.com/blog)
+- [About](https://www.blumoslabs.com/about)
+- [Contact](https://www.blumoslabs.com/contact)
+
+Brand names such as JBD, JK and Daly are trademarks of their respective owners and are used only to describe compatibility.
